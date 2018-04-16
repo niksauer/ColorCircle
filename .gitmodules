@@ -1,0 +1,3 @@
+[submodule "Frameworks/ColorModel"]
+	path = Frameworks/ColorModel
+	url = https://github.com/valery-bashkatov/ColorModel

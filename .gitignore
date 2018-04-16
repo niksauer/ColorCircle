@@ -30,3 +30,5 @@ playground.xcworkspace
 
 # Carthage
 Carthage/
+
+.DS_Store

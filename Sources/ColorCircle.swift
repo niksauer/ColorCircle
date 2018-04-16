@@ -25,7 +25,7 @@ open class ColorCircle: UIControl {
     fileprivate var brightnessLayer: UIImageView!
     
     /// The cursor.
-    fileprivate var cursor: UIView!
+    open var cursor: UIView!
     
     /// The radius of the color palette.
     fileprivate var paletteRadius: CGFloat {
@@ -79,7 +79,7 @@ open class ColorCircle: UIControl {
         palette.addSubview(brightnessLayer)
         
         cursor = UIView()
-        cursor.frame.size = CGSize(width: 10, height: 10)
+        cursor.frame.size = CGSize(width: 40, height: 40)
         cursor.layer.cornerRadius = cursor.bounds.width / 2
         cursor.layer.borderWidth = 1.5
         cursor.layer.borderColor = UIColor.white.cgColor
@@ -185,7 +185,7 @@ open class ColorCircle: UIControl {
      
      - parameter pinchGestureRecognizer: The `UIPinchGestureRecognizer` sender instance.
      */
-    func changeBrightness(_ pinchGestureRecognizer: UIPinchGestureRecognizer) {
+    @objc func changeBrightness(_ pinchGestureRecognizer: UIPinchGestureRecognizer) {
         let oldBrightness = colorModel.brightness
         let newBrightness = min(max(oldBrightness + ((pinchGestureRecognizer.velocity.sign == .minus) ? -1 : 1) / paletteRadius, 0), 1)
         
